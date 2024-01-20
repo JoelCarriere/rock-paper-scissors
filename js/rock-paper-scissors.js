@@ -1,4 +1,9 @@
+let computerScore = 0;
+let playerScore = 0;
 
+const gameResult = document.querySelector('.gameResult');
+const playerPoints = document.querySelector('#playerPoints');
+const computerPoints = document.querySelector('#computerPoints');
 
 //Create a function that will randomly return rock, paper, or scissors
 //Choose randomly with a number, based on the number value choose a string to go along with it
@@ -26,57 +31,52 @@ function playRound (playerSelection, computerSelection) {
     }
     else if (player == 'paper'){
         if (computerSelection == 'scissors'){
-            return 'You Lose! Scissors beats Paper';
-            computerScore++
+            gameResult.textContent = 'You Lose! Scissors beats Paper';
+            computerScore += 1
+            computerPoints.textContent = `${computerScore}`;
         }
         else {
-            return 'You Win! Paper beats Rock';
-            playerScore++
+            gameResult.textContent = 'You Win! Paper beats Rock';
+            playerScore += 1
+            playerPoints.textContent = `${playerScore}`;
         }
     }
     else if (player == 'rock'){
         if (computerSelection == 'paper'){
-            return 'You Lose! Paper beats Rock';
-            computerScore++
+            gameResult.textContent = 'You Lose! Paper beats Rock';
+            computerScore += 1
+            computerPoints.textContent = `${computerScore}`;
         }
         else {
-            return 'You Win! Rock beats Scissors';
-            playerScore++
+            gameResult.textContent = 'You Win! Rock beats Scissors';
+            playerScore += 1
+            playerPoints.textContent = `${playerScore}`;
         }
     }
     else if (player == 'scissors'){
         if (computerSelection == 'rock'){
-            return 'You Lose! Rock beats Scissors';
-            computerScore++
+            gameResult.textContent = 'You Lose! Rock beats Scissors';
+            computerScore += 1
+            computerPoints.textContent = `${computerScore}`;
         }
         else {
-            return 'You Win! Scissors beats Paper';
-            playerScore++
+            gameResult.textContent = 'You Win! Scissors beats Paper';
+            playerScore += 1
+            playerPoints.textContent = `${playerScore}`;
         }
     }
 
 }
 
-let computerScore = 0;
-let playerScore = 0;
-//Create a game function to determine a best of 5 winner for the game after 5 rounds
-function game () {
+const rockButton = document.querySelector('#rock');
+const paperButton = document.querySelector('#paper');
+const scissorsButton = document.querySelector('#scissors');
 
-    for (let step = 1; step <= 5; step++){
-        let playerSelection = prompt('Please choose rock, paper, or scissors and enter in the field below:');
-        computerSelection = getComputerChoice();
-        let result = playRound(playerSelection, computerSelection);
-        console.log(result);
-    }
+rockButton.addEventListener('click', clickPlay('rock'));
+paperButton.addEventListener('click', clickPlay('paper'));
+scissorsButton.addEventListener('click', clickPlay('scissors'));
 
-    if (playerScore > computerScore) {
-        return "Player wins!"
-    }
-    else {
-        return "Computer wins!"
-    }
+function clickPlay (player) {
+    computer = getComputerChoice;
+    playRound(player, computer);
 }
-
-//Create a function that accepts users choice of rock, paper, or scissors
-//function playerSelection() {
-
