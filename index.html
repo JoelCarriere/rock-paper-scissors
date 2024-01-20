@@ -8,18 +8,27 @@
     <link rel="stylesheet" href="./css/styles.css">
 </head>
 <body>
+    <div>
+        <p id="intro"></p>
+    </div>
+    
     <div class="results">
-        <p class="gameResult"></p>
-        <p id="playerPoints"></p>
-        <p id="computerPoints"></p>
+        <div>
+            <p class="winner"></p>
+            <p class="gameResult"></p>
+        </div>
+        <div>
+            <p id="playerPoints">Player Points:</p>
+            <p id="computerPoints">Computer Points:</p>
+        </div>
     </div>
     <div class="buttons">
-        <button class="itemButton" id="rock"><img src="./img/rock.png" alt="rock logo">
+        <button class="rockButton" id="rock" value="rock"><img src="./img/rock.png" alt="rock logo">
         </button>
-        <button class="itemButton" id="paper">
+        <button  class="paperButton" id="paper" value="paper">
             <img src="./img/paper.jpg" alt="paper image">
         </button>
-        <button class="itemButton" id="scissors">
+        <button class="scissorsButton" id="scissors" value="scissors">
             <img src="./img/scissors.png" alt="scissors logo">
         </button>
     </div>
